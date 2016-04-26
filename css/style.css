@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/* reset
+--------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, select, input, textarea, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	border: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption, th { text-align: left; }
+
+img, iframe { vertical-align: bottom; }
+
+/* general
+--------------------------------------------------*/
+
+/* link */
+a {
+	color: #058dc7;
+	outline: none;
+	text-decoration: none;
+	transition: all 0.1s linear;
+}
+
+/* clearfix */
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* layout
+--------------------------------------------------*/
+
+/* body */
+body {
+	color: #666;
+	font-size: 14px;
+	font-family: sans-serif;
+	line-height: 1.8;
+	letter-spacing: 0.1em;
+	background: #f5f5f5;
+}
+
+/* article */
+article {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+h1 {
+	margin-bottom: 20px;
+	padding: 5px 0 3px;
+	color: #fff;
+	background: #666;
+	text-align: center;
+}
+
+/* section */
+section {
+	margin-bottom: 20px;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 { font-weight: bold; }
+
+/* btn */
+.btn_area {
+	position: relative;
+	height: 50px;
+	margin-top: 10px;
+}
+
+.btn_vote {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #aaa url(../img/btn_heart.png) no-repeat center center;
+	background-size: 50px 50px;
+	border-radius: 25px;
+	transition: all 0.2s linear;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.btn_vote.on {
+	background-color: #fd616b;
+	animation: anime_01 0.2s;
+}
+
+@keyframes anime_01 {
+	50% {
+		right: -10px;
+		bottom: -10px;
+		width: 70px;
+		height: 70px;
+		border-radius: 50px;
+	}
+}
+
+.ico_heart {
+	padding-left: 17px;
+	background: url(../img/ico_heart.jpg) no-repeat left center;
+	background-size: 15px 15px;
+}
+
+/* footer */
+footer {
+	padding: 10px 0;
+	color: #fff;
+	text-align: center;
+	background: #aaa;
+}
+
+footer a { color: #fff; }
