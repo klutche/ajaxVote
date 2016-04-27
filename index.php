@@ -20,21 +20,26 @@ function get_count($file) {
 <link rel="stylesheet" href="css/style.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-// 投票ボタン
 $(function() {
+	allowAjax = true;
 	$('.btn_vote').click(function() {
-		$(this).toggleClass('on');
-		var id = $(this).attr('id');
-		$(this).hasClass('on') ? Vote(id, 'plus') : Vote(id, 'minus');
+		if (allowAjax) {
+			allowAjax = false;
+			$(this).toggleClass('on');
+			var id = $(this).attr('id');
+			$(this).hasClass('on') ? Vote(id, 'plus') : Vote(id, 'minus');
+		}
 	});
 });
-// 投票処理
 function Vote(id, plus) {
 	cls = $('.' + id);
 	cls_num = Number(cls.html());
 	count = plus == 'minus' ? cls_num - 1 : cls_num + 1;
-	$.get('vote.php', {'file': id, 'count': count}, function() {
-		cls.html(count)
+	$.post('vote.php', {'file': id, 'count': count}, function(data) {
+		if (data == 'success') cls.html(count);
+		setTimeout(function() {
+			allowAjax = true;
+		}, 1000);
 	});
 }
 </script>
